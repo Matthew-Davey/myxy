@@ -16,7 +16,7 @@ But it's not always easy to replicate conditions where messages may be delivered
 
 `npm install -g myxy`
 
-`λ > myxy --queue my_message_queue`
+`myxy --queue my_message_queue`
 
 Myxy will output something like the following:
 
@@ -33,7 +33,6 @@ Sending Messages  13%  [=====-----------------------------------] 12.3s
 ### What are my options?
 
 ```
-λ myxy
 Options:
   -h, --host      Hostname of the AMQP broker    [string] [default: "localhost"]
   -p, --port      AMQP broker port number               [number] [default: 5672]
