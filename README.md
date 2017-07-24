@@ -2,7 +2,7 @@
 
 ### What?
 
-Myxy is a tool to shuffle messages in an AMQP message queue. It fetches *all* of the messages from your queue down into memory, mixes them up, and then sends them back to the queue again.
+Myxy is a tool to shuffle messages in an AMQP message queue. It fetches *all* of the messages from your queue down into memory, mixes them up, and then sends them back up to the queue again.
 
 ### But why?
 
@@ -44,7 +44,7 @@ Options:
 
 ### What could go wrong?
 Myxy could fall over for any of the following reasons...
-- The AMQP broker is unreachanle on the given host/port
+- The AMQP broker is unreachable on the given host/port
 - The login or password is incorrect
 - The virtual host is not found
 - The queue is not found
