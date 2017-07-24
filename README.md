@@ -1,5 +1,7 @@
 # myxy
 
+[![npm version](https://badge.fury.io/js/myxy.svg)](https://badge.fury.io/js/myxy)
+
 ### What?
 
 Myxy is a tool to shuffle messages in an AMQP message queue. It fetches *all* of the messages from your queue down into memory, mixes them up, and then sends them back up to the queue again.
