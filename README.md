@@ -2,7 +2,7 @@
 
 ### What?
 
-Myxy is a tool to shuffle messages in an AMQP message queue.
+Myxy is a tool to shuffle messages in an AMQP message queue. It fetches *all* of the messages from your queue down into memory, mixes them up, and then sends them back to the queue again.
 
 ### But why?
 
@@ -42,3 +42,24 @@ Options:
   -v, --vhost     AMQP virtual host                      [string] [default: "/"]
   -q, --queue     The queue to be myxed                      [string] [required]
 ```
+
+### What could go wrong?
+Myxy could fall over for any of the following reasons...
+- The AMQP broker is unreachanle on the given host/port
+- The login or password is incorrect
+- The virtual host is not found
+- The queue is not found
+- The queue has other consumers
+- Something else?
+
+### Wait, that last one?
+
+Something else?
+
+### No the one before that?
+When myxy connects to your broker, it looks at how many messages are on your queue and then fetches them all down into memory to be shuffled. If you have other consumers popping messages off the queue, myxy may end up waiting for messages which are no longer there. For this reason you'll need to disable or shut down your consuming service(s) whilst myxy jumbles up the queue. Myxy will helpfully refuse to run if it sees that there are other consumers on the queue.
+
+### And something else?
+Who knows? Messages may go missing or get corrupted? I've tested this on queues with 250,000 messages, beyond that you're off the edge of the map.
+
+For the love of fluffy little bunnies, don't run this on your production systems.
